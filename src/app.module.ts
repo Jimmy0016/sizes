@@ -15,11 +15,11 @@ import { User } from './user/users.entity';
 import { Products2Controller } from './products2/products2.controller';
 import { Products2Service } from './products2/products2.service';
 import { Products2Module } from './products2/products2.module';
-import { Produ } from './products2/produc.entity';
+import { Producto } from './products2/produc.entity';
 import { SizeController } from './size/size.controller';
-import { SizeService } from './size/size.service';
+import { SizesService } from './size/size.service';
 import { SizeModule } from './size/size.module';
-import { SizeEntity } from './size/size.entity';
+import { SizesEntity } from './size/size.entity';
 
 
 
@@ -30,9 +30,9 @@ import { SizeEntity } from './size/size.entity';
     host: 'localhost',
     port: 5432,
     username: 'postgres',
-    password: '123',
-    database: 'backed',
-    entities:[User,Produ,SizeEntity],
+    password: '12345',
+    database: 'backend',
+    entities:[User,Producto,SizesEntity],
     synchronize: true,
     logging: true,
     autoLoadEntities: true,

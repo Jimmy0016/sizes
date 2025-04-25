@@ -11,7 +11,7 @@ export class CreateUserDto {
     email: string;
   
     @IsDateString()
-    birthdate: Date;
+    birthday: Date;
   
     @IsInt()
     identification: number;

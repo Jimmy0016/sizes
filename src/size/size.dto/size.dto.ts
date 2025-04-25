@@ -15,5 +15,5 @@ export class SizeDto {
 
   @IsArray()
   @ArrayNotEmpty()
-  sizes: string[];  // Cambiado a string[] para aceptar etiquetas como "M", "L"
+  sizes: string[];  // Cambiado a string[] para aceptar etiquetas como "M", ,"S",L"
 }

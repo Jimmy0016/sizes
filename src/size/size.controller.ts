@@ -1,14 +1,14 @@
 import { Controller, Get, Delete, Param } from '@nestjs/common';
-import { SizeService } from './size.service';
-import { SizeEntity } from './size.entity';
+import { SizesService } from './size.service';
+import { SizesEntity } from './size.entity';
 
-@Controller('size')
+@Controller('sizes')
 export class SizeController {
-  constructor(private readonly sizeService: SizeService) {}
+  constructor(private readonly sizeService: SizesService) {}
 
   // Obtener todas las tallas
   @Get()
-  async getAllSizes(): Promise<SizeEntity[]> {
+  async getAllSizes(): Promise<SizesEntity[]> {
     return this.sizeService.findAll();
   }
 

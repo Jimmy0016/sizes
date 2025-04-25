@@ -1,7 +1,7 @@
 
 import { Body, Controller,Get, Param, ParseIntPipe,Post,ValidationPipe,Put,Patch,Delete } from '@nestjs/common';
-import { Produ } from './produc.entity';
-import { CreadDTO } from './DTO';
+import { Producto } from './produc.entity';
+import { CreadDTO } from './product.dto';
 import { Products2Service } from './products2.service';
 
 @Controller('products2')
@@ -11,18 +11,18 @@ export class Products2Controller {
      constructor(private readonly proService : Products2Service){}
     
         @Get()
-        findAll():Promise<Produ[]>{
+        findAll():Promise<Producto[]>{
             return this.proService.findAll();
         }
     
         @Get(':id')
-        findOne(@Param('id',ParseIntPipe)id:number): Promise<Produ>
+        findOne(@Param('id',ParseIntPipe)id:number): Promise<Producto>
     {
         return this.proService.findOne(id);
         
     }
     @Post()
-    create(@Body(new ValidationPipe()) user: CreadDTO): Promise<Produ> {
+    create(@Body(new ValidationPipe()) user: CreadDTO): Promise<Producto> {
       console.log(user);  // Verifica que los datos sean correctos
       return this.proService.create(user);
     }
@@ -30,7 +30,7 @@ export class Products2Controller {
     @Put(':id')
   update(@Param('id', ParseIntPipe) id: number,
     @Body(new ValidationPipe()) updateDto: CreadDTO,
-  ): Promise<Produ> {
+  ): Promise<Producto> {
     return this.proService.update(id, updateDto);
   }
 
@@ -39,7 +39,7 @@ patch(
   @Param('id', ParseIntPipe) id: number,
   @Body(new ValidationPipe({ skipMissingProperties: true }))
   partialDto: Partial<CreadDTO>,
-): Promise<Produ> {
+): Promise<Producto> {
   return this.proService.patch(id, partialDto);
 }
 

@@ -1,17 +1,17 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { SizeEntity } from './size.entity';
+import { SizesEntity } from './size.entity';
 
 @Injectable()
-export class SizeService {
+export class SizesService {
   constructor(
-    @InjectRepository(SizeEntity)
-    private sizeRepository: Repository<SizeEntity>,
+    @InjectRepository(SizesEntity)
+    private sizeRepository: Repository<SizesEntity>,
   ) {}
 
   // Obtener todas las tallas
-  async findAll(): Promise<SizeEntity[]> {
+  async findAll(): Promise<SizesEntity[]> {
     return await this.sizeRepository.find(); 
   }
 

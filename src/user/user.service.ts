@@ -5,14 +5,14 @@ import { User } from './users.entity';
 import { NotFoundError } from 'rxjs';
 import { CreateUserDto } from './userdto';
 import { plainToInstance } from 'class-transformer';
-import { Produ } from 'src/products2/produc.entity';
+import { Producto } from 'src/products2/produc.entity';
 @Injectable()
 export class UserService {
     constructor(
         @InjectRepository(User)
         private userRepository: Repository<User>,
-        @InjectRepository(Produ)  // Inyecta el repositorio de Produ
-        private produRepository: Repository<Produ>, 
+        @InjectRepository(Producto)  // Inyecta el repositorio de Produ
+        private produRepository: Repository<Producto>, 
     ) {}
 
     // Buscar todos los usuarios

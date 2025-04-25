@@ -2,7 +2,8 @@ import { Body, Controller,Get, Param, ParseIntPipe,Post,ValidationPipe,Put,Patch
 import { User } from './users.entity';
 import { UserService } from './user.service';
 import { CreateUserDto } from './userdto';
-import { Produ } from 'src/products2/produc.entity';
+import { Producto} from 'src/products2/produc.entity';
+
 @Controller('user')
 export class UserController {
     constructor(private readonly userService: UserService) {}

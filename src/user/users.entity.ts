@@ -1,5 +1,5 @@
 import { Column, Entity, PrimaryGeneratedColumn,OneToMany } from "typeorm";
-import { Produ } from "src/products2/produc.entity";
+import { Producto } from "src/products2/produc.entity";
 @Entity()
 export class User {
   @PrimaryGeneratedColumn()
@@ -15,9 +15,12 @@ export class User {
   email: string;
 
   @Column()
-  birthdate: Date;
+  birthday: Date;
 
   @Column()
   identification: number;
+
+  @OneToMany(() => Producto, (producto) => producto.userId) // Relación con Produ
+  productos: Producto[]; // Esto es lo que deberías tener para la relación
 
 }

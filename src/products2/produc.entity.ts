@@ -1,8 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn ,ManyToOne, JoinTable, ManyToMany} from "typeorm";
-import { User } from "src/user/users.entity";
-import { SizeEntity } from "src/size/size.entity";
+import { Column, Entity, PrimaryGeneratedColumn, ManyToOne, ManyToMany, JoinTable } from 'typeorm';
+import { User } from 'src/user/users.entity';
+import { SizesEntity } from 'src/size/size.entity';
+
 @Entity()
-export class Produ {
+export class Producto {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -18,7 +19,10 @@ export class Produ {
   @Column()
   stock: number;
 
-  @ManyToMany(() => SizeEntity, (size) => size.products)
-  @JoinTable() // Necesario para establecer la relación de muchos a muchos
-  sizes: SizeEntity[];  // La relación con las tallas
+  @ManyToOne(() => User, (usuario) => usuario.productos, { nullable: true })
+  userId?: User;
+
+  @ManyToMany(() => SizesEntity, (size) => size.products)
+  @JoinTable()
+  sizes: SizesEntity[];
 }

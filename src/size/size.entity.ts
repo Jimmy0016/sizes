@@ -1,8 +1,8 @@
 import { Column, Entity, ManyToMany, PrimaryGeneratedColumn, JoinTable } from "typeorm";
-import { Produ } from "src/products2/produc.entity";
+import { Producto } from "src/products2/produc.entity";
 
-@Entity('size')
-export class SizeEntity {
+@Entity('sizes')
+export class SizesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -19,6 +19,6 @@ export class SizeEntity {
   @Column()
   size_ue: string;
 
-  @ManyToMany(() => Produ, (product) => product.sizes)
-  products: Produ[];
+  @ManyToMany(() => Producto, (product) => product.sizes)
+  products: Producto[];
 }
